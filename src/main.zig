@@ -29,7 +29,7 @@ const Entry = Environment.Entry;
 const termbox = interop.termbox;
 const unistd = interop.unistd;
 const temporary_allocator = std.heap.page_allocator;
-const ly_top_str = "Ly version " ++ build_options.version;
+const ly_top_str = ""; // "Ly version " ++ build_options.version;
 
 var session_pid: std.posix.pid_t = -1;
 fn signalHandler(i: c_int) callconv(.C) void {
@@ -424,7 +424,7 @@ pub fn main() !void {
 
                 if (!animation_timed_out) animation.draw();
 
-                buffer.drawLabel(ly_top_str, 0, 0);
+               // buffer.drawLabel(ly_top_str, 0, 0);
 
                 if (config.bigclock != .none and buffer.box_height + (bigclock.HEIGHT + 2) * 2 < buffer.height) draw_big_clock: {
                     const format = "%H:%M";
